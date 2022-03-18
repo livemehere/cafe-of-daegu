@@ -11,6 +11,66 @@
     <title>간단 코로나</title>
   </head>
   <body>
+    <div id="map" style="width:100%;height:90vh;"></div>
+    <button>클릭</button>
     <div id="root"></div>
+
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=키"></script>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=키&submodules=geocoder"></script>
+    <script>
+      var mapOptions = {
+        center: new naver.maps.LatLng(37.3595704, 127.105399),
+        zoom: 10,
+      };
+
+      var map = new naver.maps.Map('map', mapOptions);
+
+      var marker = new naver.maps.Marker({
+        position: new naver.maps.LatLng(37.3595704, 127.105399),
+        map: map
+      });
+
+
+
+      naver.maps.Event.addListener(marker, "click", function(e) {
+        if (infowindow.getMap()) {
+          infowindow.close();
+        } else {
+          infowindow.open(map, marker);
+        }
+      });
+      var GREEN_FACTORY = new naver.maps.LatLng(37.3595953, 127.1053971);
+
+      var circle = new naver.maps.Circle({
+
+        map: map,
+        center: GREEN_FACTORY,
+        radius: 6000,
+
+        strokeColor: '#5347AA',
+        strokeOpacity: 0.5,
+        strokeWeight: 2,
+        fillColor: 'none ',
+        fillOpacity: 0.3
+      });
+
+      document.querySelector('button').addEventListener('click',(e)=>{
+        e.preventDefault();
+        naver.maps.Service.geocode({ query: '대구 달서구 계대동문로 11 1층' }, function(status, response) {
+          if (status === naver.maps.Service.Status.ERROR) {
+            return alert('Something wrong!');
+          }
+
+          var home = new naver.maps.LatLng(response.v2.addresses[0].y,response.v2.addresses[0].x);
+          console.log(home);
+          map.setCenter(home); // 중심 좌표 이동
+          map.setZoom(14);     // 줌 레벨 변경
+          // 성공 시의 response 처리
+        });
+
+      })
+
+
+    </script>
   </body>
 </html>
