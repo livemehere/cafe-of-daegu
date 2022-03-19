@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import NaverMap from "../components/naverMap";
-import Navbar from "../components/navbar";
+import React, { useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { carfeState } from "../atom";
 import data from "../data/data.json";
-import { FaAngleDown } from "react-icons/fa";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Menu from "./menu";
+import Root from "./root";
 
 function App() {
   const [cafe, setCafe] = useRecoilState(carfeState);
@@ -14,12 +14,12 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <div className="h-screen m-auto relative">
-        <NaverMap />
-        <Navbar />
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/cafe-of-daegu" element={<Menu />} />
+        <Route path="cafe-of-daegu/main" element={<Root />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

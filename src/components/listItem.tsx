@@ -10,7 +10,7 @@ function ListItem({ cafeData, onClick }: ListItemProps) {
   return (
     <li className="pl-[10%] my-1 border-b-2 mb-4 pb-4 border-indigo-100">
       <h5
-        className="text-xl font-bold"
+        className="text-xl font-bold cursor-pointer hover:text-gray-400"
         onClick={() => onClick(cafeData["소재지(도로명)"])}
       >
         {cafeData["업소명"]}
