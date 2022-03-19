@@ -24,3 +24,4 @@
 - create react app 에서는 .env 에 들어있는 환경변수를 index.html 에서도 사용할 수 있다. `%REACT_APP_환경변수이름%` .
 - 모바일 브라우저에서는 의도치않게 자꾸 브라우저 자체가 scroll 되는 문제가있다. 그럴땐 body에 fixed 속성을주어서 해결하면된다
 - tailwind를 사용할땐 기본 css 와 `@apply` 를 잘활용하면 진짜 편한거같다.
+- scroll 하는 와중에 고정시키고 싶은게있다면, sticky 활용하기
