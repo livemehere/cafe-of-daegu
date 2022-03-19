@@ -12,8 +12,8 @@ function NaverMap({ width = "100%", height = "100%" }: NaverMapProps) {
     const { naver }: any = window;
 
     mapRef.current = new naver.maps.Map("map", {
-      center: new naver.maps.LatLng(37.3595704, 127.105399),
-      zoom: 10,
+      center: new naver.maps.LatLng(35.857319370881726, 128.53252268346642),
+      zoom: 13,
     });
   }, []);
 

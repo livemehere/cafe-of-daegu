@@ -15,3 +15,8 @@ export const carfeState = atom<Cafe[]>({
   key: "carfeState",
   default: [],
 });
+
+export const selectedCafe = atom({
+  key: "selectedCafe",
+  default: null,
+});

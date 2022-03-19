@@ -8,6 +8,14 @@ function Navbar() {
   const [toggle, setToggle] = useState(false);
   const cafeList = useRecoilValue(carfeState);
 
+  const selectCafe = () => {
+    console.log(1);
+    //TODO: 주소 -> 좌표
+    //TODO: 조표 -> selectedCafe 값으로 세팅
+
+    //TODO: 그다음 지도에서는 selectedCafe를 observe하다가 생기면 위치이동 및 마커 표시
+  };
+
   return (
     <div
       className={
@@ -31,7 +39,7 @@ function Navbar() {
         </h2>
         <ul>
           {cafeList.map((i) => (
-            <ListItem key={i.연번} cafeData={i} />
+            <ListItem key={i.연번} cafeData={i} onClick={selectCafe} />
           ))}
         </ul>
       </div>
