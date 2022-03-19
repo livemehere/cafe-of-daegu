@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import ListItem from "./listItem";
 import { FaAngleDown } from "react-icons/fa";
+import { useRecoilValue } from "recoil";
+import { carfeState } from "../atom";
 
 function Navbar() {
   const [toggle, setToggle] = useState(false);
+  const cafeList = useRecoilValue(carfeState);
+
   return (
     <div
       className={
@@ -26,9 +30,9 @@ function Navbar() {
           카페 목록
         </h2>
         <ul>
-          <ListItem />
-          <ListItem />
-          <ListItem />
+          {cafeList.map((i) => (
+            <ListItem key={i.연번} cafeData={i} />
+          ))}
         </ul>
       </div>
     </div>

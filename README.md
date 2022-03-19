@@ -2,7 +2,7 @@
 
 ## 라이브러리
 
-- react-naver-maps
+- 네이버 클라우드 플랫폼 : 네이버지도 API
 - react-router-dom
 - tailwindcss postcss autoprefixer
 
