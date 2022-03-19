@@ -1,20 +1,28 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ListItem from "./listItem";
 import { FaAngleDown } from "react-icons/fa";
-import { useRecoilValue } from "recoil";
-import { carfeState } from "../atom";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import { carfeState, selectedCafeState } from "../atom";
+import useGeocode from "../hooks/useGeocode";
 
-function Navbar() {
-  const [toggle, setToggle] = useState(false);
+interface NavbarProps {
+  toggle: boolean;
+}
+
+function Navbar({ toggle }: NavbarProps) {
   const cafeList = useRecoilValue(carfeState);
+  const { targetGeocode, setAddress } = useGeocode();
+  const selectedCafe = useSetRecoilState(selectedCafeState);
 
-  const selectCafe = () => {
-    console.log(1);
+  const selectCafe = (address: string) => {
     //TODO: 주소 -> 좌표
-    //TODO: 조표 -> selectedCafe 값으로 세팅
-
-    //TODO: 그다음 지도에서는 selectedCafe를 observe하다가 생기면 위치이동 및 마커 표시
+    setAddress(address);
   };
+
+  useEffect(() => {
+    //TODO: 조표 -> selectedCafe 값으로 세팅
+    selectedCafe(targetGeocode);
+  }, [targetGeocode]);
 
   return (
     <div
@@ -23,13 +31,7 @@ function Navbar() {
         (toggle ? "h-[558px]" : "h-[258px]")
       }
     >
-      <div className="relative">
-        <FaAngleDown
-          className={
-            "absolute top-6 left-4 text-3xl " + (toggle ? null : "rotate-180")
-          }
-          onClick={() => setToggle((prevState) => !prevState)}
-        />
+      <div>
         <h1 className="text-3xl font-bold text-center pt-5 ">
           찾으시는 카페가 있나요?
         </h1>

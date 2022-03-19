@@ -11,12 +11,17 @@ export interface Cafe {
   업태명: string;
 }
 
+export interface GeoCode {
+  y: string;
+  x: string;
+}
+
 export const carfeState = atom<Cafe[]>({
   key: "carfeState",
   default: [],
 });
 
-export const selectedCafe = atom({
+export const selectedCafeState = atom<GeoCode | null>({
   key: "selectedCafe",
   default: null,
 });
