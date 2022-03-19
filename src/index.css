@@ -60,3 +60,8 @@ body{
     transform: translateX(-50%);
 }
 
+.toggle-btn{
+    position: sticky;
+    top: 10%;
+    left: 3%;
+}

@@ -9,8 +9,10 @@ interface NavbarProps {
   toggle: boolean;
 }
 
-function Navbar({ toggle }: NavbarProps) {
+function Navbar() {
   const cafeList = useRecoilValue(carfeState);
+  const [toggle, setToggle] = useState(false);
+
   const { targetGeocode, setAddress } = useGeocode();
   const selectedCafe = useSetRecoilState(selectedCafeState);
 
@@ -28,9 +30,15 @@ function Navbar({ toggle }: NavbarProps) {
     <div
       className={
         "navbar max-w-5xl absolute-center overflow-scroll " +
-        (toggle ? "h-[558px]" : "h-[258px]")
+        (toggle ? "h-[70vh]" : "h-[40vh]")
       }
     >
+      <FaAngleDown
+        className={
+          "toggle-btn z-[1000] text-3xl " + (toggle ? null : "rotate-180")
+        }
+        onClick={() => setToggle((prevState) => !prevState)}
+      />
       <div>
         <h1 className="text-3xl font-bold text-center pt-5 ">
           찾으시는 카페가 있나요?
