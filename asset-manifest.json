@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/cafe-of-daegu/static/css/main.181c628b.css",
-    "main.js": "/cafe-of-daegu/static/js/main.9e39b548.js",
+    "main.css": "/cafe-of-daegu/static/css/main.0c629c95.css",
+    "main.js": "/cafe-of-daegu/static/js/main.b452f8d9.js",
     "index.html": "/cafe-of-daegu/index.html",
-    "main.181c628b.css.map": "/cafe-of-daegu/static/css/main.181c628b.css.map",
-    "main.9e39b548.js.map": "/cafe-of-daegu/static/js/main.9e39b548.js.map"
+    "main.0c629c95.css.map": "/cafe-of-daegu/static/css/main.0c629c95.css.map",
+    "main.b452f8d9.js.map": "/cafe-of-daegu/static/js/main.b452f8d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.181c628b.css",
-    "static/js/main.9e39b548.js"
+    "static/css/main.0c629c95.css",
+    "static/js/main.b452f8d9.js"
   ]
 }
